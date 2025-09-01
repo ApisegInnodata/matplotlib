@@ -85,6 +85,40 @@ a :ref:`FAQ <howto-faq>` in our :ref:`user guide <users-guide-index>`.
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="A tutorial on effectively visualizing pandas DataFrames with Matplotlib.">
+
+.. only:: html
+
+  .. image:: /tutorials/images/thumb/sphx_glr_pandas_visualization_thumb.png
+    :alt: Data Visualization with pandas
+
+  :ref:`sphx_glr_tutorials_pandas_visualization.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Data Visualization with pandas</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A tutorial on creating publication-ready figures with Matplotlib.">
+
+.. only:: html
+
+  .. image:: /tutorials/images/thumb/sphx_glr_publication_quality_figures_thumb.png
+    :alt: Creating Publication-Quality Figures
+
+  :ref:`sphx_glr_tutorials_publication_quality_figures.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Creating Publication-Quality Figures</div>
+    </div>
+
+
+.. raw:: html
+
     </div>
 
 
@@ -95,6 +129,8 @@ a :ref:`FAQ <howto-faq>` in our :ref:`user guide <users-guide-index>`.
    /tutorials/images
    /tutorials/lifecycle
    /tutorials/artists
+   /tutorials/pandas_visualization
+   /tutorials/publication_quality_figures
 
 .. only:: html
 

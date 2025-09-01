@@ -1,0 +1,67 @@
+# === Matplotlib dev (pip) ===
+# Install OS tools separately:
+# - Visual Studio Build Tools 2022 (Desktop C++ workload)  [compiler]
+# - Optional: Graphviz (system binaries) if building docs with graphviz
+# - GTK / pygobject are NOT installable via pip on Windows; use Qt or Tk backends instead.
+
+# Core build/runtime
+meson-python>=0.13.1
+numpy>=1.25
+pybind11>=2.13.2
+contourpy>=1.0.1
+cycler>=0.10.0
+fonttools>=4.22.0
+importlib-resources>=3.2.0
+kiwisolver>=1.3.1
+pillow>=9
+pyparsing>=3
+python-dateutil>=2.1
+setuptools_scm
+
+# Backends (choose at least one GUI backend)
+PyQt6          # or use PyQt5 instead of PyQt6
+wxPython       # optional; wheels exist for Windows
+# cairocffi     # optional; requires system Cairo DLLs on Windows
+
+# --- Docs build ---
+colorspacious
+graphviz
+ipython
+ipywidgets
+numpydoc>=1.0
+packaging>=20
+pydata-sphinx-theme~=0.15.0
+PyYAML
+sphinx>=3.0.0,!=6.1.2
+sphinx-copybutton
+sphinx-gallery>=0.12.0
+joblib
+sphinx-design
+sphinx-tags>=0.4.0
+PyStemmer                 # conda's 'pystemmer' → PyPI name is 'PyStemmer'
+mpl-sphinx-theme~=3.8.0
+sphinxcontrib-svg2pdfconverter>=1.1.0
+sphinxcontrib-video>=0.2.1
+pikepdf
+scipy
+
+
+# --- Testing/tooling ---
+black<24
+coverage
+ipykernel
+nbconvert[execute] !=6.0.0,!=6.0.1,!=7.3.0,!=7.3.1
+nbformat !=5.0.0,!=5.0.1
+pandas !=0.25.0
+psutil
+pre-commit
+pydocstyle>=5.1.0
+pytest !=4.6.0,!=5.4.0,!=8.1.0
+pytest-cov
+pytest-rerunfailures
+pytest-timeout
+pytest-xdist
+tornado
+pytz
+ruff
+tox
