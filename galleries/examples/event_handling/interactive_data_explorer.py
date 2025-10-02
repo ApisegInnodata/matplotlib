@@ -19,6 +19,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.widgets import Slider, Button
 import matplotlib.patheffects as path_effects
+import os, matplotlib
+
+if os.environ.get("TEST_MODE") == "1":
+    matplotlib.use("Agg")
 
 # Generate some sample data
 np.random.seed(42)
@@ -165,7 +169,11 @@ def on_pick(event):
 fig.canvas.mpl_connect('motion_notify_event', hover)
 fig.canvas.mpl_connect('pick_event', on_pick)
 
-plt.show()
+if os.environ.get("TEST_MODE") == "1":
+    fig.savefig("test_output_data_explorer.png")
+else:
+    plt.show()
+
 
 # %%
 #
