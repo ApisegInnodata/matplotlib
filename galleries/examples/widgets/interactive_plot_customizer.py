@@ -18,7 +18,12 @@ visual representations of your data and for creating publication-ready figures.
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.widgets import Slider, Button, RadioButtons, CheckButtons
+import matplotlib
+import os
 
+# Use a non-interactive backend for testing environments
+if os.environ.get("TEST_MODE") == "1":
+    matplotlib.use("Agg")  # non-interactive backend
 # Generate some sample data
 np.random.seed(42)
 x = np.linspace(0, 10, 100)
@@ -195,7 +200,11 @@ ax.annotate('Crossing', xy=(4.7, 0), xytext=(5.5, 0.3),
            arrowprops=dict(facecolor='black', shrink=0.05, width=1.5),
            fontsize=12)
 
-plt.show()
+if os.environ.get("TEST_MODE") == "1":
+    fig.savefig("test_output.png")
+else:
+    plt.show()
+
 
 # %%
 #
