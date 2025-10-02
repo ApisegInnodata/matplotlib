@@ -20,6 +20,11 @@ import numpy as np
 from matplotlib.widgets import Slider, Button, RadioButtons, CheckButtons
 from matplotlib.colors import Normalize, LogNorm, SymLogNorm
 from matplotlib.cm import ScalarMappable
+import os, matplotlib
+
+if os.environ.get("TEST_MODE") == "1":
+    matplotlib.use("Agg")
+
 
 # Generate some sample data
 np.random.seed(42)
@@ -181,7 +186,11 @@ reset_button.on_clicked(reset)
 # Set the figure title
 fig.suptitle('Interactive Colormap Adjuster', fontsize=16)
 
-plt.show()
+if os.environ.get("TEST_MODE") == "1":
+    fig.savefig("test_output_colormap.png")
+else:
+    plt.show()
+
 
 # %%
 #
