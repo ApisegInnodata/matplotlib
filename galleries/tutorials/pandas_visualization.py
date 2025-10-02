@@ -26,6 +26,11 @@ visualizations of tabular data.
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+import os, matplotlib
+
+if os.environ.get("TEST_MODE") == "1":
+    matplotlib.use("Agg")
+
 
 # Set the style to a more visually appealing one
 plt.style.use('seaborn-v0_8-whitegrid')
@@ -212,12 +217,16 @@ plt.show()
 fig, ax = plt.subplots(figsize=(10, 6))
 
 # Plot each column with custom styling
-df.plot(x='date', y='value_a', ax=ax, label='Series A', 
-       color='blue', marker='o', linestyle='-')
-df.plot(x='date', y='value_b', ax=ax, label='Series B', 
-       color='green', marker='s', linestyle='--')
-df.plot(x='date', y='value_c', ax=ax, label='Series C', 
-       color='red', marker='^', linestyle=':')
+df.plot(x='date', y='value_a', ax=ax, label='Series A',
+       color='blue', marker='o', linestyle='-', legend=False)
+df.plot(x='date', y='value_b', ax=ax, label='Series B',
+       color='green', marker='s', linestyle='--', legend=False)
+df.plot(x='date', y='value_c', ax=ax, label='Series C',
+       color='red', marker='^', linestyle=':', legend=False)
+
+# Then add one legend manually
+ax.legend()
+
 
 # Customize the plot
 ax.set_xlabel('Date', fontsize=12)
@@ -279,7 +288,12 @@ ax2.tick_params(axis='y', labelcolor='red')
 # Add a title and adjust the layout
 plt.title('Multiple Plot Types on Dual Y-Axes')
 fig.tight_layout()
-plt.show()
+if os.environ.get("TEST_MODE") == "1":
+    # Save last figure instead of showing
+    plt.savefig("test_output_pandas.png")
+else:
+    plt.show()
+
 
 # %%
 # Conclusion
