@@ -28,6 +28,11 @@ import matplotlib as mpl
 import numpy as np
 import pandas as pd
 from matplotlib.ticker import MultipleLocator, AutoMinorLocator
+import os, matplotlib
+
+if os.environ.get("TEST_MODE") == "1":
+    matplotlib.use("Agg")
+
 
 # Set a seed for reproducibility
 np.random.seed(42)
@@ -433,7 +438,11 @@ with plt.style.context(custom_style):
     ax2.set_ylabel('Amplitude')
     ax2.set_title('Figure 2: Damped Cosine Wave')
     
-    plt.show()
+    if os.environ.get("TEST_MODE") == "1":
+        plt.savefig("test_output_pub_quality.png")
+    else:
+        plt.show()
+
 
 # %%
 # Exporting Figures for Publication
